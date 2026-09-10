@@ -10,6 +10,19 @@
 //   *
 
 const n = Number(process.argv[2] ?? 5);
+const half = (n - 1) / 2;
+
+for (let i = 0; i < n; i++) {
+    let dist;
+    if (i <= half) {
+        dist = half - i;
+    } else {
+        dist = i - half;
+    }
+    const spaces = " ".repeat(dist);
+    const stars = "*".repeat(n - 2 * dist);
+    console.log(spaces + stars);
+}
 
 // TODO: print the diamond with for / if and console.log.
 // Hint: for row i, count the spaces and the stars separately.

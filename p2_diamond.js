@@ -24,6 +24,7 @@ for (let i = 0; i < n; i++) {
     console.log(spaces + stars);
 }
 
+
 // TODO: print the diamond with for / if and console.log.
 // Hint: for row i, count the spaces and the stars separately.
 // Hint: "*".repeat(3) gives "***".

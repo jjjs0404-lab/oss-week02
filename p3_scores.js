@@ -13,7 +13,27 @@ const scores = Array.from({ length: 20 }, () => Math.floor(Math.random() * 101))
 console.log("start:", scores);
 
 // (a)
+const oddOnly = scores.filter(x => x % 2 !== 0);
+console.log("odd:", oddOnly);
+
+const doubled = oddOnly.map(x => x * 2);
+console.log("doubled:", doubled);
+
+const sorted = doubled.sort((a, b) => b - a);
+console.log("sorted desc:", sorted);
+
+const half = sorted.slice(0, Math.ceil(sorted.length / 2));
+console.log("first half:", half);
 
 // (b)
+const result = scores
+  .filter(x => x % 2 !== 0)
+  .map(x => x * 2)
+  .sort((a, b) => b - a)
+  .slice(0, Math.ceil(scores.filter(x => x % 2 !== 0).length / 2));
+
+console.log("pipeline result:", result);
 
 // (c)
+console.log("end:", scores);
+//여전히 같다. filter, map, slice는 새 배열을 만든 것이라 원본배열은 건드리지 않음.

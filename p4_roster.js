@@ -21,13 +21,27 @@ const students = [
 // TODO
 // console.log("80 or more:", ...);
 
+console.log(students.filter(obj => obj.score >= 80).map(obj => obj.name));
+
 // (b) Students per department, as an object.  (forEach + an empty object)
 //     expected: per dept: { CS: 5, EE: 3, ME: 2 }
 //     Hint: counts[s.dept] = (counts[s.dept] ?? 0) + 1;
 // TODO
 // console.log("per dept:", ...);
 
+const counts = {};
+
+students.forEach(s => counts[s.dept] = (counts[s.dept] ?? 0) + 1);
+console.log("per dept:", counts);
+
 // (c) Ranking by score, one line each: "1. Soyeon (CS) 97"
 //     Copy the array before sorting (students.slice()).
 //     sort() is destructive and (a) and (b) must still see the original order.
 // TODO
+
+let result = students.slice().sort((a, b) => b.score - a.score);
+
+for(let i = 0; i<10; i++) {
+    console.log(i+1,". ", result[i].name," (", result[i].dept, ") ", result[i].score);
+}
+
